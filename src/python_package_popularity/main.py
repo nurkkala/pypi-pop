@@ -5,6 +5,7 @@ import typer
 from pydantic import BaseModel
 from rich.console import Console
 from rich.table import Table
+from tqdm import tqdm
 
 
 class RecentModel(BaseModel):
@@ -36,7 +37,10 @@ def get_pypi_stats(package_name: str):
 
 
 def compare_packages(packages: list[str], sort_by: Duration = Duration.MONTH):
-    stats = [get_pypi_stats(package) for package in packages]
+    stats = []
+    for package in tqdm(packages):
+        stats.append(get_pypi_stats(package))
+
     sort_field_name = "last_" + sort_by.value
 
     table = Table(title=f"Downloads (sorted by {sort_by})")
