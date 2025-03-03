@@ -1,9 +1,9 @@
 [project]
 name = "python-package-popularity"
 version = "0.1.0"
-description = "Add your description here"
+description = "Show statistics on python package downloads"
 readme = "README.md"
-authors = [{ name = "Tom Nurkkala", email = "thomas.nurkkala@peratonlabs.com" }]
+authors = [{ name = "Tom Nurkkala", email = "tom.nurkkala@gmail.com" }]
 requires-python = ">=3.11.11"
 dependencies = [
     "httpx>=0.28.1",
